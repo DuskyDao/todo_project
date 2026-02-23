@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<ul class="task-list">
+    {% for task in tasks %}
+    <li class="task">
+        <span class="title">{{ task.title }}</span>
+        <span class="description">{{ task.description|truncatewords:5 }}</span>
+        <span class="status">{{ task.status }}</span>
+        <span class="priority">{{ task.priority }}</span>
+        <span class="date">{{ task.due_date }}</span>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock content %}

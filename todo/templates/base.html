@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'core/css/style.css' %}" type="text/css">
+    <title>{{ title }}</title>
+</head>
+
+<body>
+    <main>
+        <header>
+            <ul>
+                <li><a href="{% url 'core:task-list' %}">List Task</a></li>
+                <li><a href="{% url 'core:task-create' %}">Create Task</a></li>
+            </ul>
+        </header>
+        <h1>{{ title }}</h1>
+        {% block content %}
+        {% endblock content %}
+
+        {% include "core/includes/pagination.html" %}
+    </main>
+</body>
+
+</html>
