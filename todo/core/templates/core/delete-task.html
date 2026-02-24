@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="task-delete">
+    <form method="post">
+        {% csrf_token %}
+        <p>Ви дійсно хочете видалити задачу?</p>
+        <strong><a href="{% url 'core:task-detail' object.id %}">{{ object.title }}</a></strong>
+        {{ form }}
+        <p><button type="submit" class="btn">Так</button></p>
+    </form>
+</div>
+{% endblock content %}

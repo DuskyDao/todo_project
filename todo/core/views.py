@@ -44,7 +44,6 @@ class TaskUpdateView(UpdateView):
     template_name = "core/create.html"
     model = Task
     form_class = TaskForm
-    # success_url = reverse_lazy("core:task-list")
     extra_context = {"title": "Update Task"}
 
     def get_success_url(self):
@@ -52,5 +51,7 @@ class TaskUpdateView(UpdateView):
 
 
 class TaskDeleteView(DeleteView):
-    template_name = "core/delete.html"
     model = Task
+    template_name = "core/delete-task.html"
+    success_url = reverse_lazy("core:task-list")
+    extra_context = {"title": "Delete Task"}

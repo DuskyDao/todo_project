@@ -1,8 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+
+:root {
+    --bg-dark: rgb(25, 27, 27);
+    --bg-light: rgb(217, 229, 240);
+    --light: rgb(217, 229, 240);
+    --dark: rgb(25, 27, 27);
+    --nice: rgb(110, 56, 172);
+    --grey: grey;
+
+
+}
+
 body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    color: aliceblue;
+    color: var(--light);
 }
 
 a {
@@ -16,7 +29,7 @@ ul {
 }
 
 body {
-    background-color: rgb(25, 27, 27);
+    background-color: var(--bg-dark);
     padding: 3rem 0;
 }
 
@@ -24,7 +37,6 @@ main {
     margin: 0 auto;
     max-width: 60vw;
     height: 100%;
-    /* background-color: rgb(186, 199, 199); */
     padding: 1rem;
 }
 
@@ -32,19 +44,16 @@ main {
     display: inline-block;
     padding: .4rem 1.2rem;
     margin: 0 1rem 1.8rem 0;
-    border: solid 2px white;
+    border: solid 2px var(--nice);
     border-radius: 20px;
-    color: white;
-    transition: color .4s ease;
+    color: var(--nice);
+    transition: all .4s ease;
     cursor: pointer;
 
     &:hover {
-        color: grey;
-        border: solid 2px grey;
-
+        color: var(--grey);
+        border: solid 2px var(--grey);
     }
-
-
 }
 
 header ul {
@@ -55,21 +64,27 @@ header ul {
     font-weight: 700;
 
     & li>a {
-        color: aliceblue;
+        font-family: 'Oswald';
+        color: var(--light);
         text-decoration: none;
         transition: color .4s ease;
 
         &:hover {
-            color: grey;
+            color: var(--grey);
         }
     }
-
 }
 
 h1 {
+    font-family: 'Oswald';
     margin: 2rem 0;
     font-size: 1.5rem;
-    color: grey;
+    color: var(--grey);
+}
+
+h2 {
+    font-family: 'Oswald';
+    color: var(--nice);
 }
 
 .task {
@@ -82,27 +97,29 @@ h1 {
     padding: .8rem 1.5rem;
     margin-bottom: 15px;
 
-    background-color: rgba(22, 21, 21, 0.85);
-    color: white;
-    border: 1px solid white;
+    background-color: var(--bg-dark);
+    color: var(--light);
+    border: 1px solid var(--bg-light);
     border-radius: 20px;
     transition: all .4s ease;
 
 
     &:hover {
-        background-color: rgba(43, 40, 40, 0.884);
+        background-color: rgba(13, 12, 14, 0.815);
         box-shadow: 0 0 2px;
     }
 }
 
 .task.header {
     padding: 0.4rem 1.5rem;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: 600;
-    background-color: aliceblue;
+    background-color: var(--bg-dark);
+    border: solid 2px var(--nice);
 
     & span {
-        color: black !important;
+        text-transform: uppercase;
+        color: aliceblue;
     }
 }
 
@@ -116,7 +133,7 @@ h1 {
 }
 
 .description {
-    color: grey;
+    color: var(--grey);
     flex: 3;
 }
 
@@ -144,11 +161,11 @@ h1 {
 }
 
 .priority.high {
-    color: rgb(221, 151, 60);
+    color: rgb(211, 141, 49);
 }
 
 .priority.medium {
-    color: rgb(242, 245, 90);
+    color: rgb(224, 226, 100);
 }
 
 .priority.low {
@@ -169,24 +186,22 @@ h1 {
 
 .pagination a {
     margin: 0 10px;
-    color: aliceblue;
+    color: var(--light);
     transition: color .4s ease;
 
     &:hover {
-        color: grey;
+        color: var(--grey);
     }
 }
 
 .pagination span {
-    color: grey;
+    color: var(--grey);
 }
 
 .data {
     display: flex;
     gap: 2rem;
     flex-wrap: wrap;
-    /* justify-content: center; */
-    /* align-items: center; */
 }
 
 .data-content>span {
@@ -195,47 +210,44 @@ h1 {
 
 .data-content>span>span {
     margin-right: .3rem;
-    color: grey;
+    color: var(--grey);
 }
 
 /* form */
-
-form p {
-    /* margin-bottom: 1.4rem; */
-}
-
-/* Лейбли */
 .form-label {
     display: block;
     margin-bottom: 0.5rem;
     font-weight: 600;
-    color: grey;
+    color: var(--grey);
 }
 
-/* Всі поля вводу (input, textarea, select) */
 .form-input,
 textarea,
 select,
 input[type="date"],
 input[type="text"],
 input[type="submit"] {
-    /* width: 100%; */
-    padding: 0.75rem 1rem;
+    padding: 0.55rem 1rem;
     border-radius: 20px;
+    font-size: 1rem;
     transition: all 0.2s ease;
-    background-color: #f7fafc;
+    background-color: var(--bg-light);
 }
 
-/* Фокус */
+input[type="text"] {
+    width: 40rem;
+}
+
 .form-input:focus,
 textarea:focus,
 select:focus {
     outline: none;
-    border-color: #2c7ab9;
-    background-color: white;
+    border-color: var(--nice);
+    background-color: var(--bg-light);
 }
 
 textarea {
+    width: 40rem;
     min-height: 120px;
     resize: vertical;
 }
@@ -246,7 +258,7 @@ select[name$="-month"],
 select[name$="-year"] {
     width: auto;
     display: inline-block;
-    margin-right: 0.75rem;
+    /* margin-right: 0.75rem; */
 }
 
 /* Контейнер для SelectDateWidget */
@@ -268,8 +280,6 @@ p:has(> select[name$="-day"]) label {
     min-height: 1.2em;
 } */
 
-
-/* Додаткові стилі для статусу та пріоритету (вигляд select) */
 select {
     appearance: none;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='currentColor' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
@@ -277,4 +287,30 @@ select {
     background-position: right 1rem center;
     background-size: 12px;
     padding-right: 2.5rem;
+}
+
+form .btn {
+    margin-top: 1.2rem;
+    padding: .8rem 1.5rem;
+    background-color: var(--bg-dark);
+    font-size: 1.3rem;
+    font-weight: 700
+}
+
+/* tast delete */
+.task-delete p {
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.task-delete a {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--nice);
+    transition: color .4s ease;
+
+    &:hover {
+        color: var(--grey);
+    }
+
 }
