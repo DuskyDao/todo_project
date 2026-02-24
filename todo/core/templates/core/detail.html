@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div>
+    <a class="btn" href="{% url 'core:task-update' task.id %}">Оновити</a>
+    <a class="btn" href="{% url 'core:task-delete' task.id %}">Видалити</a>
+</div>
+<div class="data">
+    <div class="data-content">
+        {% if task.status == 'done' %}
+        <span class="status done"><span>Статус:</span> ✅ {{ task.get_status_display }}</span>
+        {% elif task.status == 'new' %}
+        <span class="status new"><span>Статус:</span> 🆕 {{ task.get_status_display }}</span>
+        {% elif task.status == 'in_progress' %}
+        <span class="status in_progress"><span>Статус:</span> ➡️ {{ task.get_status_display }}</span>
+        {% endif %}
+    </div>
+    <div class="data-content">
+        {% if task.priority == 'high' %}
+        <span class="priority high"><span>Пріоритет:</span> {{ task.get_priority_display }}</span>
+        {% elif task.priority == 'medium' %}
+        <span class="priority medium"><span>Пріоритет:</span> {{ task.get_priority_display }}</span>
+        {% elif task.priority == 'immediate' %}
+        <span class="priority immediate"><span>Пріоритет:</span> {{ task.get_priority_display }}</span>
+        {% elif task.priority == 'low' %}
+        <span class="priority low"><span>Пріоритет:</span> {{ task.get_priority_display }}</span>
+        {% endif %}
+    </div>
+    <div class="data-content">
+        <span><span>Дата виконання:</span>{{ task.due_date }}</span>
+    </div>
+</div>
+<h2>{{ task.title }}</h2>
+<p class="description">{{ task.description }}</p>
+{% endblock content%}

@@ -2,14 +2,40 @@
 
 {% block content %}
 <ul class="task-list">
-    {% for task in tasks %}
-    <li class="task">
-        <span class="title">{{ task.title }}</span>
-        <span class="description">{{ task.description|truncatewords:5 }}</span>
-        <span class="status">{{ task.status }}</span>
-        <span class="priority">{{ task.priority }}</span>
-        <span class="date">{{ task.due_date }}</span>
+    <li class="task header">
+        <span class="title"> Назва задачі</span>
+        <span class="description">Опис</span>
+        <span class="status">Статус</span>
+        <span class="priority">Пріоритет</span>
+        <span class="date">Дата виконання</span>
     </li>
+    {% for task in tasks %}
+    <a href="{% url 'core:task-detail' task.id %}">
+        <li class="task">
+            <span class="title">{{ task.title }}</span>
+            <span class="description">{{ task.description|truncatewords:5 }}</span>
+
+            {% if task.status == 'done' %}
+            <span class="status done">✅ {{ task.get_status_display }}</span>
+            {% elif task.status == 'new' %}
+            <span class="status new">🆕 {{ task.get_status_display }}</span>
+            {% elif task.status == 'in_progress' %}
+            <span class="status in_progress">➡️ {{ task.get_status_display }}</span>
+            {% endif %}
+
+            {% if task.priority == 'high' %}
+            <span class="priority high">{{ task.get_priority_display }}</span>
+            {% elif task.priority == 'medium' %}
+            <span class="priority medium">{{ task.get_priority_display }}</span>
+            {% elif task.priority == 'immediate' %}
+            <span class="priority immediate">{{ task.get_priority_display }}</span>
+            {% elif task.priority == 'low' %}
+            <span class="priority low">{{ task.get_priority_display }}</span>
+            {% endif %}
+
+            <span class="date">{{ task.due_date }}</span>
+        </li>
+    </a>
     {% endfor %}
 </ul>
 {% endblock content %}
