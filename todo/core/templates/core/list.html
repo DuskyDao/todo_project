@@ -7,7 +7,7 @@
         <span class="description">Опис</span>
         <span class="status">Статус</span>
         <span class="priority">Пріоритет</span>
-        <span class="date">Дата виконання</span>
+        <span class="date">Термін до</span>
     </li>
     {% for task in tasks %}
     <a href="{% url 'core:task-detail' task.id %}">

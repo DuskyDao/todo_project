@@ -1,14 +1,16 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<form action="" method="post">
-    {% csrf_token %}
-    <div class="form-error">{{ form.non_field_errors }}</div>
-    {% for field in form %}
-    <p><label class="form-label" for="{{ field.id_for_label }}">{{ field.label }}</label>{{ field }}</p>
-    <div class="form-error">{{ field.errors }}</div>
-    {% endfor %}
+<div class="task-form">
+    <form action="" method="post">
+        {% csrf_token %}
+        <div class="form-error">{{ form.non_field_errors }}</div>
+        {% for field in form %}
+        <p><label class="form-label" for="{{ field.id_for_label }}">{{ field.label }}</label>{{ field }}</p>
+        <div class="form-error">{{ field.errors }}</div>
+        {% endfor %}
 
-    <button type="submit" class="btn">Зберегти</button>
-</form>
+        <button type="submit" class="btn">Зберегти</button>
+    </form>
+</div>
 {% endblock content %}

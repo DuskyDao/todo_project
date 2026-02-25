@@ -7,7 +7,6 @@ from django.views.generic import (
     DetailView,
 )
 
-
 from .forms import TaskForm
 from .models import Task
 
@@ -17,14 +16,14 @@ class TaskListView(ListView):
     context_object_name = "tasks"
     queryset = Task.objects.all().order_by("-created_at")
     paginate_by = 5
-    extra_context = {"title": "Task List"}
+    extra_context = {"title": "Список задач"}
 
 
 class TaskCreateView(CreateView):
     template_name = "core/create.html"
     form_class = TaskForm
     success_url = reverse_lazy("core:task-list")
-    extra_context = {"title": "Create Task"}
+    extra_context = {"title": "Створення задачі"}
 
 
 class TaskDetailView(DetailView):
@@ -33,7 +32,7 @@ class TaskDetailView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["title"] = "Detail Task"
+        context["title"] = "Задача детально"
         return context
 
     def get_queryset(self):
@@ -44,7 +43,7 @@ class TaskUpdateView(UpdateView):
     template_name = "core/create.html"
     model = Task
     form_class = TaskForm
-    extra_context = {"title": "Update Task"}
+    extra_context = {"title": "Оновити задачу"}
 
     def get_success_url(self):
         return reverse("core:task-detail", kwargs={"pk": self.object.pk})
@@ -54,4 +53,4 @@ class TaskDeleteView(DeleteView):
     model = Task
     template_name = "core/delete-task.html"
     success_url = reverse_lazy("core:task-list")
-    extra_context = {"title": "Delete Task"}
+    extra_context = {"title": "Видалити задачу"}

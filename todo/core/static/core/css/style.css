@@ -6,9 +6,7 @@
     --light: rgb(217, 229, 240);
     --dark: rgb(25, 27, 27);
     --nice: rgb(110, 56, 172);
-    --grey: grey;
-
-
+    --grey: rgb(143, 141, 141);
 }
 
 body {
@@ -16,6 +14,18 @@ body {
     padding: 0;
     box-sizing: border-box;
     color: var(--light);
+}
+
+h1 {
+    font-family: 'Oswald';
+    margin: 2rem 0 1.5rem 0;
+    font-size: 1.5rem;
+    color: var(--grey);
+}
+
+h2 {
+    font-family: 'Oswald';
+    color: var(--nice);
 }
 
 a {
@@ -51,11 +61,12 @@ main {
     cursor: pointer;
 
     &:hover {
-        color: var(--grey);
-        border: solid 2px var(--grey);
+        color: var(--light);
+        border: solid 2px var(--light);
     }
 }
 
+/* base.html */
 header ul {
     display: flex;
     gap: 3rem;
@@ -73,107 +84,6 @@ header ul {
             color: var(--grey);
         }
     }
-}
-
-h1 {
-    font-family: 'Oswald';
-    margin: 2rem 0;
-    font-size: 1.5rem;
-    color: var(--grey);
-}
-
-h2 {
-    font-family: 'Oswald';
-    color: var(--nice);
-}
-
-.task {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 30px;
-
-    width: 100%;
-    padding: .8rem 1.5rem;
-    margin-bottom: 15px;
-
-    background-color: var(--bg-dark);
-    color: var(--light);
-    border: 1px solid var(--bg-light);
-    border-radius: 20px;
-    transition: all .4s ease;
-
-
-    &:hover {
-        background-color: rgba(13, 12, 14, 0.815);
-        box-shadow: 0 0 2px;
-    }
-}
-
-.task.header {
-    padding: 0.4rem 1.5rem;
-    font-size: 1.1rem;
-    font-weight: 600;
-    background-color: var(--bg-dark);
-    border: solid 2px var(--nice);
-
-    & span {
-        text-transform: uppercase;
-        color: aliceblue;
-    }
-}
-
-.task span {
-    text-align: left;
-}
-
-.title {
-    flex: 2;
-    font-weight: 700
-}
-
-.description {
-    color: var(--grey);
-    flex: 3;
-}
-
-.status,
-.priority,
-.date {
-    flex: 1;
-}
-
-.status,
-.priority {
-    font-weight: 600;
-}
-
-.status.done {
-    color: green;
-}
-
-.status.in_progress {
-    color: yellow;
-}
-
-.status.new {
-    color: blue;
-}
-
-.priority.high {
-    color: rgb(211, 141, 49);
-}
-
-.priority.medium {
-    color: rgb(224, 226, 100);
-}
-
-.priority.low {
-    color: rgb(61, 218, 61);
-}
-
-.priority.immediate {
-    color: red;
 }
 
 .pagination {
@@ -198,6 +108,95 @@ h2 {
     color: var(--grey);
 }
 
+/* list.html */
+.task {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+    font-size: 1rem;
+
+    width: 100%;
+    padding: .8rem 1.5rem;
+    margin-bottom: 15px;
+
+    background-color: var(--bg-dark);
+    color: var(--light);
+    border: 1px solid var(--bg-light);
+    border-radius: 20px;
+    transition: all .4s ease;
+
+    &:hover {
+        background-color: rgba(13, 12, 14, 0.815);
+        box-shadow: 0 0 2px;
+    }
+}
+
+.task.header {
+    font-size: 1.3rem;
+    font-weight: 600;
+    background-color: var(--bg-dark);
+    border: solid 2px var(--nice);
+
+    & span {
+        font-family: 'Oswald';
+        color: aliceblue;
+    }
+}
+
+.task span {
+    text-align: left;
+}
+
+.title {
+    flex: 3;
+    font-weight: 700;
+}
+
+.description {
+    color: var(--grey);
+    flex: 3;
+}
+
+.status,
+.priority,
+.date {
+    flex: 1;
+}
+
+.status,
+.priority {
+    font-weight: 600;
+}
+
+.status.done {
+    color: rgb(8, 175, 8);
+}
+
+.status.in_progress {
+    color: rgb(58, 245, 229);
+}
+
+.status.new {
+    color: rgb(62, 62, 241);
+}
+
+.priority.high {
+    color: rgb(230, 155, 58);
+}
+
+.priority.medium {
+    color: rgb(224, 226, 100);
+}
+
+.priority.low {
+    color: rgb(184, 228, 193);
+}
+
+.priority.immediate {
+    color: red;
+}
+
 .data {
     display: flex;
     gap: 2rem;
@@ -213,20 +212,20 @@ h2 {
     color: var(--grey);
 }
 
-/* form */
-.form-label {
+/* create.html*/
+.task-form .form-label {
     display: block;
     margin-bottom: 0.5rem;
     font-weight: 600;
     color: var(--grey);
 }
 
-.form-input,
-textarea,
-select,
-input[type="date"],
-input[type="text"],
-input[type="submit"] {
+.task-form .form-input,
+.task-form textarea,
+.task-form select,
+.task-form input[type="date"],
+.task-form input[type="text"],
+.task-form input[type="submit"] {
     padding: 0.55rem 1rem;
     border-radius: 20px;
     font-size: 1rem;
@@ -234,62 +233,51 @@ input[type="submit"] {
     background-color: var(--bg-light);
 }
 
-input[type="text"] {
+.task-form input[type="text"] {
     width: 40rem;
 }
 
-.form-input:focus,
-textarea:focus,
-select:focus {
-    outline: none;
-    border-color: var(--nice);
-    background-color: var(--bg-light);
-}
 
-textarea {
+
+.task-form textarea {
     width: 40rem;
     min-height: 120px;
     resize: vertical;
 }
 
-/* SelectDateWidget (три select'и: день/місяць/рік) */
-select[name$="-day"],
-select[name$="-month"],
-select[name$="-year"] {
-    width: auto;
-    display: inline-block;
-    /* margin-right: 0.75rem; */
-}
-
-/* Контейнер для SelectDateWidget */
-p:has(> select[name$="-day"]) {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-}
-
-p:has(> select[name$="-day"]) label {
-    flex: 0 0 100%;
-}
-
-/* Стилі для помилок */
-/* .form-error {
-    color: #e53e3e;
-    font-size: 0.875rem;
-    margin-top: 0.35rem;
-    min-height: 1.2em;
-} */
-
-select {
+.task-form select {
     appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='currentColor' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-position: right 1rem center;
     background-size: 12px;
+    background-color: var(--bg-light) !important;
     padding-right: 2.5rem;
+    margin-right: .2rem;
 }
 
-form .btn {
+.task-form select option {
+    background-color: var(--bg-light) !important;
+}
+
+.task-form .form-input:focus,
+.task-form textarea:focus,
+.task-form select:focus {
+    outline: none;
+    border-color: var(--nice);
+    background-color: var(--light);
+}
+
+.task-form input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    accent-color: var(--nice);
+    transition: transform 0.1s ease;
+}
+
+.task-form .btn {
     margin-top: 1.2rem;
     padding: .8rem 1.5rem;
     background-color: var(--bg-dark);
