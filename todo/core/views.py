@@ -16,7 +16,7 @@ class TaskListView(ListView):
     template_name = "core/list.html"
     context_object_name = "tasks"
     queryset = Task.objects.all().order_by("-created_at")
-    paginate_by = 5
+    paginate_by = 7
     extra_context = {"title": _("Список задач")}
 
 

@@ -1,14 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
 
 :root {
-    --bg-dark: rgb(25, 27, 27);
+    --bg-dark: #1f2329;
+    /* --bg-dark: rgb(25, 27, 27); */
     --bg-light: rgb(217, 229, 240);
     --light: rgb(217, 229, 240);
     --dark: rgb(25, 27, 27);
     --nice: rgb(110, 56, 172);
     --grey: rgb(143, 141, 141);
-
     --fh: 'Oswald';
+
+    --shadow-xl: 0 20px 25px #0006;
 
     --max-width: 1100px;
 }
@@ -57,10 +59,12 @@ ul {
     color: var(--light);
     transition: all .4s ease;
     cursor: pointer;
+    /* box-shadow: var(--shadow-xl); */
 
     &:hover {
         color: var(--nice);
         border: solid 2px var(--nice);
+        box-shadow: var(--shadow-xl);
     }
 }
 
@@ -91,18 +95,28 @@ header .menu {
     }
 }
 
-header .language {
+.language form {
     display: flex;
-    align-items: center;
-    gap: .4rem;
-    font-family: var(--fh);
-    font-size: .9rem;
-    font-weight: 700;
+    gap: .3rem;
+}
 
-    & .active {
+.language form button {
+    padding: 0;
+    font-family: var(--fh);
+    font-size: 1rem;
+    font-weight: 700;
+    border: none;
+    background-color: transparent;
+    color: var(--grey);
+    transition: color .4s ease;
+
+    &:hover {
         color: var(--light);
     }
 
+    &.active {
+        color: var(--nice);
+    }
 }
 
 .pagination {
@@ -110,7 +124,6 @@ header .language {
     justify-content: center;
     align-items: center;
     margin-top: 2rem;
-    /* color: aliceblue; */
 }
 
 .pagination a {
@@ -127,6 +140,21 @@ header .language {
     color: var(--grey);
 }
 
+.pagination span.active {
+    font-weight: 700;
+    color: var(--light);
+}
+
+.site-footer {
+    display: flex;
+    justify-content: center;
+    padding: 1rem 0;
+
+    & span {
+        color: var(--grey);
+    }
+}
+
 /* list.html */
 .task {
     display: flex;
@@ -135,31 +163,36 @@ header .language {
     /* overflow: hidden; */
 }
 
-.task__header {
+.task__header,
+.task__wrapper {
     display: grid;
-    grid-template-columns: 5fr 4fr 1.8fr 1.8fr 2fr;
+    grid-template-columns: 5fr 4fr 1.8fr 1.8fr 2.1fr;
     gap: .4rem;
-    padding: .7rem 1rem;
-    font-family: var(--fh);
-    font-size: 1.3rem;
-    font-weight: 600;
-    border: 2px solid var(--nice);
     border-radius: 1.3rem;
+    box-shadow: var(--shadow-xl);
+}
+
+.task__header {
+    padding: .5rem 1.4rem 0.9rem 1.4rem;
+    font-family: var(--fh);
+    font-size: 1.4rem;
+    font-weight: 600;
+    background-color: var(--bg-light);
+    color: var(--dark);
 }
 
 .task__wrapper {
-    display: grid;
-    grid-template-columns: 5fr 4fr 1.8fr 1.8fr 2fr;
-    gap: .4rem;
-    padding: .7rem 1rem;
+    padding: .7rem 1.4rem;
     font-size: 1rem;
-    border: 1px solid var(--bg-light);
-    border-radius: 1.3rem;
+    border: 1px solid var(--grey);
     transition: background 0.12s;
 }
 
 .task__wrapper:hover {
-    background: rgba(0, 0, 0, 0.397);
+    background: #22262c;
+    border: 1px solid var(--light);
+    box-shadow: var(--shadow-xl);
+    transform: translateY(-2px);
 }
 
 .task__wrapper a {
@@ -182,16 +215,17 @@ header .language {
     overflow: hidden;
     text-overflow: ellipsis;
 } */
+
 .task__wrapper .description {
     color: var(--grey);
 }
 
 .status.new {
-    color: #2563eb;
+    color: #8b5cf6;
 }
 
 .status.in_progress {
-    color: #60f1de;
+    color: #3b82f6;
 }
 
 .status.done {
@@ -199,19 +233,19 @@ header .language {
 }
 
 .priority.high {
-    color: #dc6f26;
+    color: #f97316;
 }
 
 .priority.medium {
-    color: #dbea0c;
+    color: #ebd24a;
 }
 
 .priority.low {
-    color: #d2dceb;
+    color: #10b981;
 }
 
 .priority.immediate {
-    color: red;
+    color: #ef4444;
     font-weight: 600;
 }
 
@@ -237,6 +271,7 @@ header .language {
     margin-bottom: 0.5rem;
     font-weight: 600;
     color: var(--grey);
+
 }
 
 .task-form .form-input,
@@ -250,6 +285,8 @@ header .language {
     font-size: 1rem;
     transition: all 0.2s ease;
     background-color: var(--bg-light);
+    box-shadow: var(--shadow-xl);
+
 }
 
 .task-form input[type="text"] {

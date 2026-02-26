@@ -9,9 +9,9 @@ class Task(models.Model):
         DONE = "done", "Виконано"
 
     class Priority(models.TextChoices):
-        LOW = "low", "Легка"
-        MEDIUM = "medium", "Середня"
-        HIGH = "high", "Висока"
+        LOW = "low", "Не високий"
+        MEDIUM = "medium", "Середній"
+        HIGH = "high", "Терміновий"
         IMMEDIATE = "immediate", "Негайний"
 
     title = models.CharField(max_length=255, verbose_name="Заголовок")

@@ -1,5 +1,6 @@
 {% load static %}
 {% load i18n %}
+{% load tz %} {# для тегу now з урахуванням часової зони #}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,20 +12,27 @@
 </head>
 
 <body>
+
+
     <header>
         <div class="container">
             <nav>
                 <ul class="menu">
-                    <li><a href="{% url 'core:task-list' %}">Задачі</a></li>
-                    <li><a href="{% url 'core:task-create' %}">Створити задачу</a></li>
+                    <li><a href="{% url 'core:task-list' %}">{% trans "Задачі" %}</a></li>
+                    <li><a href="{% url 'core:task-create' %}">{% trans "Створити задачу" %}</a></li>
                 </ul>
             </nav>
             <div class="language">
-                <ul>
-                    <a href="" class="active">UA</a>
-                    <a href="">RU</a>
-                    <a href="">EN</a>
-                </ul>
+                <form action="{% url 'set_language' %}" method="post">
+                    {% csrf_token %}
+                    <input type="hidden" name="next" value="{{ request.get_full_path }}">
+                    <button type="submit" name="language" value="uk" {% if request.LANGUAGE_CODE == 'uk' %} class="active"
+                        {% endif %}>UA</button>
+                    <button type="submit" name="language" value="ru" {% if request.LANGUAGE_CODE == 'ru' %} class="active"
+                        {% endif %}>RU</button>
+                    <button type="submit" name="language" value="en" {% if request.LANGUAGE_CODE == 'en' %} class="active"
+                        {% endif %}>EN</button>
+                </form>
             </div>
         </div>
     </header>
@@ -37,8 +45,15 @@
         </main>
     </div>
     <footer class="site-footer">
-        <div class="container">
-        </div>
+        <p>
+            © <time datetime="{% now " Y" %}">{% now "Y" %}</time> ToDo.
+            {% blocktrans %}<span>Всі права захищені.</span>{% endblocktrans %}
+            &nbsp;<span>|</span>&nbsp;
+            {% blocktrans %}<span>Останнє оновлення:</span>{% endblocktrans %}
+            <time datetime="{% now " Y-m-d" %}">
+                <span>{% now "d F Y" %}</span>
+            </time>
+        </p>
     </footer>
 </body>
 

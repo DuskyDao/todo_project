@@ -23,5 +23,5 @@
     </div>
 </div>
 <h2>{{ task.title }}</h2>
-<p class="description">{{ task.description }}</p>
+<p class="description">{{ task.description|linebreaks }}</p>
 {% endblock content%}
