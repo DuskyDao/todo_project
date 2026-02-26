@@ -7,7 +7,7 @@
         <p>Ви дійсно хочете видалити задачу?</p>
         <strong><a href="{% url 'core:task-detail' object.id %}">{{ object.title }}</a></strong>
         {{ form }}
-        <p><button type="submit" class="btn">Так</button></p>
+        <p><button type="submit" class="btn">Видалити</button></p>
     </form>
 </div>
 {% endblock content %}

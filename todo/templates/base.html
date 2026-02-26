@@ -1,4 +1,5 @@
 {% load static %}
+{% load i18n %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,19 +11,35 @@
 </head>
 
 <body>
-    <main>
-        <header>
-            <ul>
-                <li><a href="{% url 'core:task-list' %}">Задачі</a></li>
-                <li><a href="{% url 'core:task-create' %}">Створити задачу</a></li>
-            </ul>
-        </header>
-        <h1>{{ title }}</h1>
-        {% block content %}
-        {% endblock content %}
-
-        {% include "core/includes/pagination.html" %}
-    </main>
+    <header>
+        <div class="container">
+            <nav>
+                <ul class="menu">
+                    <li><a href="{% url 'core:task-list' %}">Задачі</a></li>
+                    <li><a href="{% url 'core:task-create' %}">Створити задачу</a></li>
+                </ul>
+            </nav>
+            <div class="language">
+                <ul>
+                    <a href="" class="active">UA</a>
+                    <a href="">RU</a>
+                    <a href="">EN</a>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <main>
+            <h1>{{ title }}</h1>
+            {% block content %}
+            {% endblock content %}
+            {% include "core/includes/pagination.html" %}
+        </main>
+    </div>
+    <footer class="site-footer">
+        <div class="container">
+        </div>
+    </footer>
 </body>
 
 </html>

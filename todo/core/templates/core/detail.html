@@ -16,15 +16,7 @@
         {% endif %}
     </div>
     <div class="data-content">
-        {% if task.priority == 'high' %}
-        <span class="priority high"><span>Пріоритет:</span> {{ task.get_priority_display }}</span>
-        {% elif task.priority == 'medium' %}
-        <span class="priority medium"><span>Пріоритет:</span> {{ task.get_priority_display }}</span>
-        {% elif task.priority == 'immediate' %}
-        <span class="priority immediate"><span>Пріоритет:</span> {{ task.get_priority_display }}</span>
-        {% elif task.priority == 'low' %}
-        <span class="priority low"><span>Пріоритет:</span> {{ task.get_priority_display }}</span>
-        {% endif %}
+        <span class="priority {{ task.priority }}"><span>Пріоритет:</span> {{ task.get_priority_display }}</span>
     </div>
     <div class="data-content">
         <span><span>Дата виконання:</span>{{ task.due_date }}</span>
