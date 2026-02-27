@@ -10,3 +10,7 @@ urlpatterns = [
 urlpatterns += i18n_patterns(
     path("", include("core.urls", namespace="core")),
 )
+
+admin.site.site_header = "Панель керування сайтом"
+admin.site.index_title = "Панель завдань"
+admin.site.site_title = "Проект ToDo"

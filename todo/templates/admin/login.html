@@ -1,0 +1,20 @@
+{% extends "admin/login.html" %}
+{% load static %}
+
+{% block branding %}
+    <h1 id="site-name" style="text-align:center;">
+        Вам точно сюди можна?
+    </h1>
+{% endblock %}
+
+{% block content %}
+    <div class="custom-login">
+        <h2 style="text-align:center;">Вхід в систему</h2>
+        {{ block.super }}
+    </div>
+{% endblock %}
+
+{% block extrastyle %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'admin/css/custom.css' %}">
+{% endblock %}
