@@ -21,5 +21,5 @@ class TaskForm(forms.ModelForm):
         fields = ["title", "description", "status", "due_date", "priority", "is_active"]
         widgets = {
             "title": forms.TextInput(attrs={"class": "form-input"}),
-            "description": forms.Textarea(attrs={"cols": 50, "rows": 5}),
+            "description": forms.Textarea(attrs={"cols": 50, "rows": 10}),
         }
