@@ -1,25 +1,26 @@
 {% extends 'base.html' %}
+{% load i18n %}
 
 {% block content %}
 <div>
-    <a class="btn" href="{% url 'core:task-update' task.id %}">Оновити</a>
-    <a class="btn" href="{% url 'core:task-delete' task.id %}">Видалити</a>
+    <a class="btn" href="{% url 'core:task-update' task.id %}">{% trans "Оновити" %}</a>
+    <a class="btn" href="{% url 'core:task-delete' task.id %}">{% trans "Видалити" %}</a>
 </div>
 <div class="data">
     <div class="data-content">
         {% if task.status == 'done' %}
-        <span class="status done"><span>Статус:</span> ✅ {{ task.get_status_display }}</span>
+        <span class="status done"><span>{% trans "Статус" %}:</span> ✅ {{ task.get_status_display }}</span>
         {% elif task.status == 'new' %}
-        <span class="status new"><span>Статус:</span> 🆕 {{ task.get_status_display }}</span>
+        <span class="status new"><span>{% trans "Статус" %}:</span> 🆕 {{ task.get_status_display }}</span>
         {% elif task.status == 'in_progress' %}
-        <span class="status in_progress"><span>Статус:</span> ➡️ {{ task.get_status_display }}</span>
+        <span class="status in_progress"><span>{% trans "Статус" %}:</span> ➡️ {{ task.get_status_display }}</span>
         {% endif %}
     </div>
     <div class="data-content">
-        <span class="priority {{ task.priority }}"><span>Пріоритет:</span> {{ task.get_priority_display }}</span>
+        <span class="priority {{ task.priority }}"><span>{% trans "Пріоритет" %}:</span> {{ task.get_priority_display }}</span>
     </div>
     <div class="data-content">
-        <span><span>Дата виконання:</span>{{ task.due_date }}</span>
+        <span><span>{% trans "Дата виконання" %}:</span>{{ task.due_date }}</span>
     </div>
 </div>
 <h2>{{ task.title }}</h2>

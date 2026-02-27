@@ -1,0 +1,164 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-02-27 13:37+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
+"(n%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: core/models.py:8
+msgid "Нова"
+msgstr "Новая"
+
+#: core/models.py:9
+msgid "В процесі"
+msgstr "В работе"
+
+#: core/models.py:10
+msgid "Виконано"
+msgstr "Выполнено"
+
+#: core/models.py:13
+msgid "Не високий"
+msgstr "Низкий"
+
+#: core/models.py:14
+msgid "Середній"
+msgstr "Средний"
+
+#: core/models.py:15
+msgid "Терміновий"
+msgstr "Высокий"
+
+#: core/models.py:16
+msgid "Негайний"
+msgstr "Критический"
+
+#: core/models.py:18
+msgid "Заголовок"
+msgstr "Заголовок"
+
+#: core/models.py:19 core/templates/core/list.html:8
+msgid "Опис"
+msgstr "Описание"
+
+#: core/models.py:25 core/templates/core/detail.html:12
+#: core/templates/core/detail.html:14 core/templates/core/detail.html:16
+#: core/templates/core/list.html:9
+msgid "Статус"
+msgstr "Статус"
+
+#: core/models.py:28
+msgid "Активна"
+msgstr "Активна"
+
+#: core/models.py:31
+msgid "Дата створення"
+msgstr "Дата создания"
+
+#: core/models.py:33
+msgid "Дедлайн"
+msgstr "Срок выполнения"
+
+#: core/models.py:39 core/templates/core/detail.html:20
+#: core/templates/core/list.html:10
+msgid "Пріоритет"
+msgstr "Приоритет"
+
+#: core/models.py:46 core/models.py:47
+msgid "Завдання"
+msgstr "Задача"
+
+#: core/templates/core/create.html:14
+msgid "Зберегти"
+msgstr "Сохранить"
+
+#: core/templates/core/delete-task.html:8
+msgid "Ви дійсно хочете видалити задачу?"
+msgstr "Вы действительно хотите удалить задачу?"
+
+#: core/templates/core/delete-task.html:11 core/templates/core/detail.html:7
+msgid "Видалити"
+msgstr "Удалить"
+
+#: core/templates/core/detail.html:6
+msgid "Оновити"
+msgstr "Обновить"
+
+#: core/templates/core/detail.html:23
+msgid "Дата виконання"
+msgstr "Дата выполнения"
+
+#: core/templates/core/includes/pagination.html:5
+msgid "Попередня"
+msgstr "Предыдущая"
+
+#: core/templates/core/includes/pagination.html:7
+msgid "Сторінка"
+msgstr "Страница"
+
+#: core/templates/core/includes/pagination.html:7
+msgid "із"
+msgstr "из"
+
+#: core/templates/core/includes/pagination.html:9
+msgid "Наступна"
+msgstr "Следущая"
+
+#: core/templates/core/list.html:7
+msgid "Назва задачі"
+msgstr "Название задачи"
+
+#: core/templates/core/list.html:11
+msgid "Виконати до"
+msgstr "Выполнить до"
+
+#: core/views.py:20
+msgid "Список задач"
+msgstr "Список задач"
+
+#: core/views.py:27
+msgid "Створення задачі"
+msgstr "Создание задачи"
+
+#: core/views.py:36
+msgid "Задача детально"
+msgstr "Задача подробно"
+
+#: core/views.py:47
+msgid "Оновити задачу"
+msgstr "Обновить задачу"
+
+#: core/views.py:57
+msgid "Видалити задачу"
+msgstr "Удалить задачу"
+
+#: templates/base.html:21
+msgid "Задачі"
+msgstr "Задачи"
+
+#: templates/base.html:22
+msgid "Створити задачу"
+msgstr "Создать задачу"
+
+#: templates/base.html:50
+msgid "<span>Всі права захищені.</span>"
+msgstr "<span>Все права защищены.</span>"
+
+#: templates/base.html:52
+msgid "<span>Останнє оновлення:</span>"
+msgstr "<span>Последнее обновление:</span>"

@@ -4,11 +4,11 @@
 {% block content %}
 <ul class="task">
     <li class="task__header">
-        <span class="title">Назва задачі</span>
-        <span class="description">Опис</span>
-        <span class="status">Статус</span>
-        <span class="priority">Пріоритет</span>
-        <span class="date">Виконати до</span>
+        <span class="title">{% trans "Назва задачі" %}</span>
+        <span class="description">{% trans "Опис" %}</span>
+        <span class="status">{% trans "Статус" %}</span>
+        <span class="priority">{% trans "Пріоритет" %}</span>
+        <span class="date">{% trans "Виконати до" %}</span>
     </li>
     {% for task in tasks %}
     <li class="task__wrapper">

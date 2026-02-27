@@ -1,13 +1,14 @@
 {% extends "base.html" %}
+{% load i18n %}
 
 {% block content %}
 <div class="task-delete">
     <form method="post">
         {% csrf_token %}
-        <p>Ви дійсно хочете видалити задачу?</p>
+        <p>{% trans "Ви дійсно хочете видалити задачу?" %}</p>
         <strong><a href="{% url 'core:task-detail' object.id %}">{{ object.title }}</a></strong>
         {{ form }}
-        <p><button type="submit" class="btn">Видалити</button></p>
+        <p><button type="submit" class="btn">{% trans "Видалити" %}</button></p>
     </form>
 </div>
 {% endblock content %}

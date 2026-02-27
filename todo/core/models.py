@@ -1,41 +1,47 @@
 from django.db import models
+from django.utils.translation import gettext_lazy as _
 
 
 class Task(models.Model):
 
     class Status(models.TextChoices):
-        NEW = "new", "Нова"
-        IN_PROGRESS = "in_progress", "В процесі"
-        DONE = "done", "Виконано"
+        NEW = "new", _("Нова")
+        IN_PROGRESS = "in_progress", _("В процесі")
+        DONE = "done", _("Виконано")
 
     class Priority(models.TextChoices):
-        LOW = "low", "Не високий"
-        MEDIUM = "medium", "Середній"
-        HIGH = "high", "Терміновий"
-        IMMEDIATE = "immediate", "Негайний"
+        LOW = "low", _("Не високий")
+        MEDIUM = "medium", _("Середній")
+        HIGH = "high", _("Терміновий")
+        IMMEDIATE = "immediate", _("Негайний")
 
-    title = models.CharField(max_length=255, verbose_name="Заголовок")
-    description = models.TextField(blank=True, verbose_name="Опис")
+    title = models.CharField(max_length=255, verbose_name=_("Заголовок"))
+    description = models.TextField(blank=True, verbose_name=_("Опис"))
 
     status = models.CharField(
-        max_length=20, choices=Status.choices, default=Status.NEW, verbose_name="Статус"
+        max_length=20,
+        choices=Status.choices,
+        default=Status.NEW,
+        verbose_name=_("Статус"),
     )
 
-    is_active = models.BooleanField(default=True, verbose_name="Активна")
+    is_active = models.BooleanField(default=True, verbose_name=_("Активна"))
 
-    created_at = models.DateTimeField(auto_now_add=True, verbose_name="Дата створення")
-    due_date = models.DateField(null=True, blank=True, verbose_name="Дедлайн")
+    created_at = models.DateTimeField(
+        auto_now_add=True, verbose_name=_("Дата створення")
+    )
+    due_date = models.DateField(null=True, blank=True, verbose_name=_("Дедлайн"))
 
     priority = models.CharField(
         max_length=10,
         choices=Priority.choices,
         default=Priority.MEDIUM,
-        verbose_name="Пріоритет",
+        verbose_name=_("Пріоритет"),
     )
 
     def __str__(self):
         return f"{self.title} ({self.status})"
 
     class Meta:
-        verbose_name = "Завдання"
-        verbose_name_plural = "Завдання"
+        verbose_name = _("Завдання")
+        verbose_name_plural = _("Завдання")
