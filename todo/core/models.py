@@ -2,6 +2,7 @@ from django.db import models
 from django.utils.translation import gettext_lazy as _
 
 from parler.models import TranslatableModel, TranslatedFields
+from django_ckeditor_5.fields import CKEditor5Field
 
 
 class Task(TranslatableModel):
@@ -40,7 +41,12 @@ class Task(TranslatableModel):
 
     translations = TranslatedFields(
         title=models.CharField(max_length=255, verbose_name=_("Заголовок")),
-        description=models.TextField(blank=True, verbose_name=_("Опис")),
+        # description=models.TextField(blank=True, verbose_name=_("Опис")),
+        description=CKEditor5Field(
+            blank=True,
+            verbose_name=_("Опис"),
+            config_name="extends",
+        ),
     )
 
     def __str__(self):
