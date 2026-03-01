@@ -3,12 +3,13 @@
 
 :root {
     --bg-dark: #1f2329;
-    /* --bg-dark: rgb(25, 27, 27); */
     --bg-light: rgb(217, 229, 240);
+
     --light: rgb(217, 229, 240);
     --dark: rgb(25, 27, 27);
     --nice: rgb(110, 56, 172);
     --grey: rgb(143, 141, 141);
+
     --fh: 'Oswald';
 
     --shadow-xl: 0 20px 25px #0006;
@@ -23,11 +24,6 @@ body {
     font-size: 1rem;
     color: var(--light);
     background-color: var(--bg-dark);
-}
-
-.container {
-    max-width: var(--max-width);
-    margin-inline: auto;
 }
 
 h1 {
@@ -61,13 +57,17 @@ ul {
     color: var(--light);
     transition: all .4s ease;
     cursor: pointer;
-    /* box-shadow: var(--shadow-xl); */
 
     &:hover {
         color: var(--nice);
         border: solid 2px var(--nice);
         box-shadow: var(--shadow-xl);
     }
+}
+
+.container {
+    max-width: var(--max-width);
+    margin-inline: auto;
 }
 
 /* base.html */
@@ -140,7 +140,6 @@ header .menu {
 
 .pagination span {
     color: var(--grey);
-
 }
 
 .pagination span.active {
@@ -288,7 +287,6 @@ header .menu {
     transition: all 0.2s ease;
     background-color: var(--bg-light);
     box-shadow: var(--shadow-xl);
-
 }
 
 .task-form input[type="text"] {
@@ -355,8 +353,6 @@ header .menu {
     &:hover {
         color: var(--grey);
     }
-
-
 }
 
 .task-delete .btn {

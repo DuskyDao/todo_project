@@ -1,0 +1,16 @@
+{% load i18n %}
+{% comment %} Фикс проблемы совместимости parler 2.3 не поддерживает django 6. Удален вывод кнопки удаления в табах {% endcomment %}
+{% if language_tabs %}
+<div class="parler-language-tabs{% if language_tabs.css_class %} {{ language_tabs.css_class }} {% endif %}">
+    {% for url,name,code,status in language_tabs %}
+        {% if status == 'current' %}
+            <input type="hidden" class="language_button selected" name="{{ code }}"/>
+            <span class="current">{{ name }}</span>
+        {% else %}
+            <span class="{{ status }}">
+                <a href="{{ url }}">{{ name }}</a>
+            </span>
+        {% endif %}
+    {% endfor %}
+</div>
+{% endif %}

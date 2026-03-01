@@ -23,6 +23,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    "parler",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -105,6 +106,19 @@ LOCALE_PATHS = [
     BASE_DIR / "locale",
 ]
 SESSION_COOKIE_AGE = 60 * 60 * 24 * 30  # 30 дней
+
+# Для перевода базы
+PARLER_LANGUAGES = {
+    None: (
+        {"code": "uk"},
+        {"code": "ru"},
+        {"code": "en"},
+    ),
+    "default": {
+        "fallback": "uk",
+        "hide_untranslated": False,
+    },
+}
 
 
 TIME_ZONE = "UTC"

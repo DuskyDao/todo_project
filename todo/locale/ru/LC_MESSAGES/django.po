@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-27 13:37+0000\n"
+"POT-Creation-Date: 2026-03-01 12:06+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,66 +20,66 @@ msgstr ""
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: core/models.py:8
-msgid "Нова"
-msgstr "Новая"
+#: core/forms.py:16 core/models.py:32 core/templates/core/list.html:11
+msgid "Виконати до"
+msgstr "Выполнить до"
 
-#: core/models.py:9
-msgid "В процесі"
-msgstr "В работе"
-
-#: core/models.py:10
-msgid "Виконано"
-msgstr "Выполнено"
-
-#: core/models.py:13
-msgid "Не високий"
-msgstr "Низкий"
-
-#: core/models.py:14
-msgid "Середній"
-msgstr "Средний"
-
-#: core/models.py:15
-msgid "Терміновий"
-msgstr "Высокий"
-
-#: core/models.py:16
-msgid "Негайний"
-msgstr "Критический"
-
-#: core/models.py:18
+#: core/forms.py:21 core/models.py:42
 msgid "Заголовок"
 msgstr "Заголовок"
 
-#: core/models.py:19 core/templates/core/list.html:8
+#: core/forms.py:23 core/models.py:43 core/templates/core/list.html:8
 msgid "Опис"
 msgstr "Описание"
 
-#: core/models.py:25 core/templates/core/detail.html:12
+#: core/models.py:10
+msgid "Нова"
+msgstr "Новая"
+
+#: core/models.py:11
+msgid "В процесі"
+msgstr "В работе"
+
+#: core/models.py:12
+msgid "Виконано"
+msgstr "Выполнено"
+
+#: core/models.py:15
+msgid "Не високий"
+msgstr "Низкий"
+
+#: core/models.py:16
+msgid "Середній"
+msgstr "Средний"
+
+#: core/models.py:17
+msgid "Терміновий"
+msgstr "Высокий"
+
+#: core/models.py:18
+msgid "Негайний"
+msgstr "Критический"
+
+#: core/models.py:24 core/templates/core/detail.html:12
 #: core/templates/core/detail.html:14 core/templates/core/detail.html:16
 #: core/templates/core/list.html:9
 msgid "Статус"
 msgstr "Статус"
 
-#: core/models.py:28
+#: core/models.py:27
 msgid "Активна"
 msgstr "Активна"
 
-#: core/models.py:31
+#: core/models.py:30
 msgid "Дата створення"
 msgstr "Дата создания"
 
-#: core/models.py:33
-msgid "Дедлайн"
-msgstr "Срок выполнения"
-
-#: core/models.py:39 core/templates/core/detail.html:20
+#: core/models.py:38 core/templates/core/detail.html:20
 #: core/templates/core/list.html:10
 msgid "Пріоритет"
 msgstr "Приоритет"
 
-#: core/models.py:46 core/models.py:47
+#: core/models.py:50 core/models.py:51
 msgid "Завдання"
 msgstr "Задача"
 
@@ -122,10 +122,6 @@ msgstr "Следущая"
 #: core/templates/core/list.html:7
 msgid "Назва задачі"
 msgstr "Название задачи"
-
-#: core/templates/core/list.html:11
-msgid "Виконати до"
-msgstr "Выполнить до"
 
 #: core/views.py:20
 msgid "Список задач"
