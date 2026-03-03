@@ -4,8 +4,16 @@ from django.utils.translation import gettext_lazy as _
 from parler.models import TranslatableModel, TranslatedFields
 from django_ckeditor_5.fields import CKEditor5Field
 
+# для среза дескрипшина
 from django.utils.html import strip_tags
 from django.template.defaultfilters import truncatewords_html
+
+# для удаления фотографий
+import os
+from urllib.parse import urlparse
+from bs4 import BeautifulSoup
+from django.conf import settings
+from django.core.files.storage import default_storage
 
 
 class Task(TranslatableModel):
@@ -62,6 +70,41 @@ class Task(TranslatableModel):
             return ""
         plain = strip_tags(self.description)
         return truncatewords_html(plain, 10)
+
+    def cleanup_images(self):
+        description = self.description or ""
+
+        soup = BeautifulSoup(description, "html.parser")
+        images = soup.find_all("img")
+
+        for img in images:
+            url = img.get("src")
+            if not url:
+                continue
+
+            parsed_url = urlparse(url)
+            file_path = parsed_url.path  # /media/2026/03/03/file.jpg
+
+            if not file_path.startswith(settings.MEDIA_URL):
+                continue
+
+            relative_path = file_path[len(settings.MEDIA_URL) :]
+
+            # 🔥 Удаляем через storage (правильнее чем os.remove)
+            if default_storage.exists(relative_path):
+                default_storage.delete(relative_path)
+
+                # Если используется локальное хранилище —
+                # можно попробовать удалить пустую папку
+                absolute_path = os.path.join(settings.MEDIA_ROOT, relative_path)
+                folder = os.path.dirname(absolute_path)
+
+                if os.path.isdir(folder) and not os.listdir(folder):
+                    os.rmdir(folder)
+
+    def delete(self, *args, **kwargs):
+        self.cleanup_images()
+        super().delete(*args, **kwargs)
 
     class Meta:
         verbose_name = _("Завдання")

@@ -319,6 +319,18 @@ header .menu {
     background-color: rgb(114, 204, 253);
 }
 
+.description .image {
+    margin: 0;
+    max-width: 100%;
+}
+
+.description img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+
 /* create.html*/
 .task-form .form-label {
     display: block;
