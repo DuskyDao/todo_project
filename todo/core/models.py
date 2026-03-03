@@ -4,6 +4,9 @@ from django.utils.translation import gettext_lazy as _
 from parler.models import TranslatableModel, TranslatedFields
 from django_ckeditor_5.fields import CKEditor5Field
 
+from django.utils.html import strip_tags
+from django.template.defaultfilters import truncatewords_html
+
 
 class Task(TranslatableModel):
 
@@ -51,6 +54,14 @@ class Task(TranslatableModel):
 
     def __str__(self):
         return f"{self.title} ({self.status})"
+
+    @property
+    def short_description(self):
+        """обрезаем описание до 10 слов для отображения в шаблоне списка задач"""
+        if not self.description:
+            return ""
+        plain = strip_tags(self.description)
+        return truncatewords_html(plain, 10)
 
     class Meta:
         verbose_name = _("Завдання")

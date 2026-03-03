@@ -15,6 +15,9 @@
     --shadow-xl: 0 20px 25px #0006;
 
     --max-width: 1100px;
+
+
+
 }
 
 body {
@@ -218,6 +221,7 @@ header .menu {
 } */
 
 .task__wrapper .description {
+    width: 100%;
     color: var(--grey);
 }
 
@@ -264,6 +268,55 @@ header .menu {
 .data-content>span>span {
     margin-right: .3rem;
     color: var(--grey);
+}
+
+.description pre {
+    margin: 1.5em 0;
+    background-color: #302d31 !important;
+    color: var(--light) !important;
+    border-radius: 1rem;
+    padding: .8rem 1rem;
+    box-shadow: var(--shadow-xl);
+    overflow-x: auto;
+}
+
+.description blockquote {
+    margin-left: 0;
+    padding: .2rem 1.5rem;
+    /* background-color: var(--grey); */
+    background-color: #4c6351 !important;
+    /* color: #10b981; */
+    font-style: italic;
+    border-left: 5px solid #10b981;
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    box-shadow: var(--shadow-xl);
+}
+
+.description .pen-red {
+    color: rgb(231, 19, 19);
+    background-color: inherit;
+}
+
+.description .pen-green {
+    color: rgb(37, 207, 51);
+    background-color: inherit;
+}
+
+.description .marker-yellow {
+    background-color: rgb(253, 253, 119);
+}
+
+.description .marker-green {
+    background-color: rgb(49, 185, 49);
+}
+
+.description .marker-pink {
+    background-color: rgb(252, 120, 153);
+}
+
+.description .marker-blue {
+    background-color: rgb(114, 204, 253);
 }
 
 /* create.html*/

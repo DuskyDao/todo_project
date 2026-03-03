@@ -14,7 +14,7 @@
     <li class="task__wrapper">
         <a href="{% url 'core:task-detail' task.id %}">
             <span class="title">{{ task.title }}</span>
-            <span class="description">{{ task.description|truncatewords:5 }}</span>
+            <span class="description">{{ task.short_description|safe }}</span>
             <span class="status {{ task.status }}">
                 {% if task.status == 'done' %}✅
                 {% elif task.status == 'new' %}🆕

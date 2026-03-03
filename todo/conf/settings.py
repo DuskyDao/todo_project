@@ -143,6 +143,10 @@ STATICFILES_DIRS = [
 MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
+CKEDITOR_5_FILE_STORAGE = "core.storage.DateBasedStorage"
+
+
+CKEDITOR_5_USER_LANGUAGE = True
 customColorPalette = [
     {"color": "hsl(4, 90%, 58%)", "label": "Red"},
     {"color": "hsl(340, 82%, 52%)", "label": "Pink"},
@@ -152,10 +156,11 @@ customColorPalette = [
     {"color": "hsl(207, 90%, 54%)", "label": "Blue"},
 ]
 
-CKEDITOR_5_CUSTOM_CSS = "path_to.css"  # optional
-CKEDITOR_5_FILE_STORAGE = "path_to_storage.CustomStorage"  # optional
+CKEDITOR_5_CUSTOM_CSS = "ckeditor5/ckeditor5.css"
+# CKEDITOR_5_FILE_STORAGE = "path_to_storage.CustomStorage"  # optional
 CKEDITOR_5_CONFIGS = {
     "default": {
+        "language": ["uk", "ru", "en"],
         "toolbar": {
             "items": [
                 "heading",
@@ -168,8 +173,7 @@ CKEDITOR_5_CONFIGS = {
                 "blockQuote",
                 "imageUpload",
             ],
-            "language": "uk",
-        }
+        },
     },
     "extends": {
         "blockToolbar": [

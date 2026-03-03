@@ -27,7 +27,7 @@ class TaskForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         if self.instance.pk:
-            current_language = self.instance.get_current_language()
+            # current_language = self.instance.get_current_language()
             self.fields["title"].initial = self.instance.title
             self.fields["description"].initial = self.instance.description
 

@@ -1,0 +1,68 @@
+@import url('/static/core/css/style.css');
+
+:root {
+    --ck-color-base-background: var(--bg-dark);
+    --ck-color-toolbar-background: #302d31;
+
+    --ck-color-button-default-hover-background: var(--nice);
+    --ck-color-tooltip-background: var(--bg-light);
+    --ck-color-tooltip-text: var(--dark);
+    --ck-color-text: var(--light);
+    --ck-content-font-color: var(--light);
+
+    --ck-color-base-border: var(--light);
+    --ck-color-content-border: var(--bg-dark);
+    --ck-color-toolbar-border: var(--light);
+    --ck-color-focus-border: var(--nice);
+
+
+    /* --ck-color-tooltip-border: var(--nice); */
+
+    /* размер иконок */
+    --ck-font-size-base: .8rem;
+    --ck-spacing-unit: .4em;
+    --ck-border-radius: 1.1rem;
+
+    /* --ck-spacing-standard: 1rem; */
+    /* --ck-color-toolbar-border: var(--nice); */
+
+}
+
+.ck-content pre {
+    padding: 12px 16px;
+    background-color: #1e1e1e !important;
+    font-size: .8rem;
+    color: var(--light) !important;
+    border: 1px solid #444 !important;
+    border-radius: 6px;
+}
+
+.ck-content blockquote {
+    border-left: 5px solid #10b981;
+    padding: 0 1.5rem;
+    color: #10b981;
+    font-style: italic
+}
+
+/* отступ панели */
+.ck-rounded-corners .ck.ck-toolbar {
+    padding: 0 .5rem;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0
+}
+
+/* отступ контент */
+.ck.ck-editor__editable_inline {
+    padding: 0 .7rem;
+}
+
+/* .ck.ck-button,
+.ck .ck-dropdown {
+    border solid 1px var(--light);
+    border-radius: .1rem;
+    padding: .2rem;
+} */
+
+.ck .ck-powered-by {
+    display: none;
+}
